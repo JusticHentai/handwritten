@@ -22,22 +22,24 @@ export const dfs2 = (array: number[], target: number): number[][] => {
 
   const dfs = (list: number[], index: number, sum: number) => {
     if (sum === target) {
-      res.push(list)
+      res.push([...list])
       return
     }
 
     for (let i = index; i < array.length; i++) {
-      if (sum + array[index] > target) {
-        continue
+      if (sum + array[i] > target) {
+        break
       }
 
-      list.push(array[index])
-      dfs(list, index + 1, sum + array[index])
+      list.push(array[i])
+
+      dfs(list, index + 1, sum + array[i])
+
       list.pop()
     }
   }
 
-  dfs(array, 0, 0)
+  dfs([], 0, 0)
 
   return res
 }
