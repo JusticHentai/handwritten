@@ -16,7 +16,7 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore",
     "prepublish": "pnpm build",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
